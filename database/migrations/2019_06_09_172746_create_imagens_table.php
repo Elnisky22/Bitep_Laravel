@@ -14,7 +14,7 @@ class CreateImagensTable extends Migration
     public function up()
     {
         //Schema::drop('imagens');
-
+        //->
         Schema::create('imagens', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
             $table->binary('imagem');

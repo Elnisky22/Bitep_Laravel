@@ -12,7 +12,7 @@ class CreateUsuariosTable extends Migration {
      */
     public function up() {
         //Schema::drop('usuarios');
-        
+        //->
         Schema::create('usuarios', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
             $table->date('datacadastro');

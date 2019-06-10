@@ -13,7 +13,7 @@ class CreateCidadesTable extends Migration
      */
     public function up()
     {
-        //Schema::drop('cidades');
+        //Schema::drop('cidades'); ->
 
         Schema::create('cidades', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();

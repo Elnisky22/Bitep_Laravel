@@ -14,7 +14,7 @@ class CreateEstadosTable extends Migration
     public function up()
     {
         //Schema::drop('estados'); -> serve para dropar a tabela e caso de alteração, evita erros SE ja estiver sido criada.
-
+        //->
         Schema::create('estados', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
             $table->string('nome');
