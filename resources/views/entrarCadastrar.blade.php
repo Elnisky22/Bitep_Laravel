@@ -41,8 +41,8 @@
 				        <input id="psw1" class="sign-up sign-in hiddeable" type="password" minlength="6" placeholder ="Senha" required="true" value=""/>
 				        <input id="psw2" class="sign-up hiddeable" type="password" minlength="6" placeholder ="Repetir Senha" value=""/>
 
-				        <input type="submit" class="sign-in cmdButton hiddeable" value="Entrar" name = "btnEntrar" action="#{usuario.logar()}"/>
-				        <input type="submit" class="sign-up cmdButton hiddeable" value="Cadastrar" name = "btnCadastrar" action="#{usuario.cadastrarUsuario()}"/>
+				        <input type="submit" class="sign-in cmdButton hiddeable" value="Entrar" name="btnEntrar" action="#{usuario.logar()}"/>
+				        <input type="submit" class="sign-up cmdButton hiddeable" value="Cadastrar" name="btnCadastrar" action="#{usuario.cadastrarUsuario()}"/>
 			       	</fieldset>
 		    	</form>
 			</div>	
