@@ -15,7 +15,7 @@ Route::get('/cadastrarPet', function() {
 Route::get('/meuPerfil', function() {
 	return view('meuPerfil');
 });
-Route::get('/editarPerfil', function(){
+Route::get('/editarPerfil', function() {
 	return view('editarPerfil');
 });
 
