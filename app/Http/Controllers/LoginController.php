@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Estado;
+use App\Models\Cidade;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller {
     public function index() {
-        $estados = DB::select('SELECT * FROM estados;');
-        $cidades = DB::select('SELECT * FROM cidades WHERE estado_id = 1;');
-        return view('entrarCadastrar', compact('estados', 'cidades'));
+        $estados = Estado::all();
+        return view('entrarCadastrar', compact('estados'));
+    }
+
+    public function loadCidades(Request $request) {
+        return $cidades = Cidade::where('estado_id', '=', $request->estado_id)->get();
     }
 }

@@ -13,7 +13,8 @@
 		
 		<!-- Script Padrão -->
 		<script src="js/util.js"></script>
-		<script src="js/jquery.mask.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 		<script type="text/javascript">
 			function start(){window.onload = start;}
 		</script>
@@ -27,31 +28,27 @@
 				<a href="/"><img src="images/logobitep.png" style="width:150px" alt="Ocorreu um erro ao carregar a imagem."/></a><br/>
 				
 				<?php
-					session_start();
+					/*session_start();
 					if (!isset($_SESSION["usuario"])) {
 						echo '<p> Logando... </p>';
 						$nomeUser = 'userTeste';
 						$_SESSION["usuario"] = 'userTeste';
 					} else {
 						echo '<p>Já está logado</p>';
-					}
+					}*/
 				?>
 
-				<!-- NÃO LOGADO -->
 				<?php
-					if (!isset($_SESSION["usuario"])) {
+					if (isset($_SESSION["usuario"])) {
+						echo '<p>Bem vindo, ' . $_SESSION["usuario"] .' =)</p><hr/>';
+						echo '<a href="/cadastrarPet" class="sidebarButton fill" style="width:226px"><i class="fa fa-plus" style="margin-left:-110px"></i> Cadastrar Pet</button></a>';
+						echo '<a href="/meuPerfil" class="sidebarButton fill" style="width:226px"><i class="fa fa-user" style="margin-left:-138px"></i> Meu perfil</a><br/>';
+						echo '<a href="/meusPets" class="sidebarButton fill" style="width:226px"><i class="fa fa-paw" style="margin-left:-134px"></i> Meus Pets</a>';
+					} else {
 						echo '<p>Olá, visitante!</p>';
 						echo '<p>Entre ou cadastre-se para poder doar seus pets!</p>';
 						echo '<a href="/login" class="sidebarButton fill" style="width:226px"><i class="fa fa-sign-in-alt" style="margin-left:-87px"></i> Entrar/Cadastrar</a>';
 					}
-				?>
-				
-				<!-- LOGADO -->
-				<?php
-					echo '<p>Bem vindo, ' . $_SESSION["usuario"] .' =)</p><hr/>';
-					echo '<a href="/cadastrarPet" class="sidebarButton fill" style="width:226px"><i class="fa fa-plus" style="margin-left:-110px"></i> Cadastrar Pet</button></a>';
-					echo '<a href="/meuPerfil" class="sidebarButton fill" style="width:226px"><i class="fa fa-user" style="margin-left:-138px"></i> Meu perfil</a><br/>';
-					echo '<a href="/meusPets" class="sidebarButton fill" style="width:226px"><i class="fa fa-paw" style="margin-left:-134px"></i> Meus Pets</a>';
 				?>
 				
 				<!-- LOGADO E NÃO LOGADO -->
@@ -106,9 +103,6 @@
 		<footer class="w3-hide-small w3-container w3-padding-16" style="margin-left:260px">
 			<hr/>
 			<p>Feito com <i class="fa fa-heart"></i> e <i class="fa fa-coffee"></i> por © Pinguim tem Joelho, 2019</p>
-			<p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a>, 
-			<a href="https://codepen.io/IanHazelton/details/bgwEPa/" target="_blank" class="w3-hover-text-green">Ian Hazelton</a>, 
-			<a href="http://igorescobar.github.io/jQuery-Mask-Plugin/" target="_blank" class="w3-hover-text-green">Igor Escobar</a>
 		</footer>
 	</body>
 </html>
