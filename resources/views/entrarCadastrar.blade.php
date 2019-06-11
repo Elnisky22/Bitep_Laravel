@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="css/entrarCadastrar.css"/>
 	
 	<!-- JavaScript da Página -->
-	<script src="js/entrarCadastrar.js"/>
+	<script src="js/entrarCadastrar.js"></script>
 </head>
 	
 <body>
@@ -22,30 +22,32 @@
 						<label id="lblSign1" for="sign-in">Entrar</label>							
 				        <label id="lblSign2" for="sign-up">Cadastrar</label>
 				
-				        <input id="nome" class="sign-up hiddeable" type="text" minlength="3" maxlength="40" placeholder="Nome" jsf:value="#{usuario.user.nome}" onkeypress="return validarNaoNumero(event)"/>
-				        <input id="email" class="sign-up sign-in hiddeable" type="email" maxlength="255" name="email" placeholder="Email" required="true" jsf:value = "#{usuario.user.email}"/>
-				        <input id="telefone" class="sign-up hiddeable tel-mask" type="tel" maxlength="15" name="telefone" placeholder="Telefone" jsf:value="#{usuario.user.telefone}"/>
+				        <input id="nome" class="sign-up hiddeable" type="text" minlength="3" maxlength="40" placeholder="Nome" onkeypress="return validarNaoNumero(event)"/>
+				        <input id="email" class="sign-up sign-in hiddeable" type="email" maxlength="255" name="email" placeholder="Email" required="true"/>
+				        <input id="telefone" class="sign-up hiddeable tel-mask" type="tel" maxlength="15" name="telefone" placeholder="Telefone"/>
 				        
-				        <selectOneMenu id="selEstado" class="sign-up hiddeable" value="#{usuario.user.cidade.estado.id}">
-							<selectItem itemValue="#{null}" itemLabel="Selecionar Estado"/>
-							<selectItems value="#{form.estados}" var="p" itemValue = "#{p.id}" itemLabel = "#{p.nome}"/>
-							<ajax listener="#{form.carregarCidades}" render="selCidade" />
-						</selectOneMenu>
+				        <select id="selEstado" name="estado" class="sign-up hiddeable">
+							<option value="">--Estado--</option>
+							@foreach($estados as $e)
+								<option value="{{$e->id}}">{{$e->nome}}</option>
+							@endforeach
+						</select>
 						
-						<selectOneMenu id ="selCidade" class = "sign-up hiddeable" value="#{usuario.user.cidade.id}">
-							<selectItem itemValue="#{null}" itemLabel="Selecionar Cidade" />
-							<selectItems value="#{form.cidades}" var="c" itemValue="#{c.id}" itemLabel="#{c.nome}" />
-						</selectOneMenu>
+						<select id ="selCidade" name="cidade" class="sign-up hiddeable">
+							<option value="">--Cidade--</option>
+							@foreach($cidades as $c)
+								<option value="{{$c->id}}">{{$c->nome}}</option>
+							@endforeach
+						</select>
 
 				        <input id="psw1" class="sign-up sign-in hiddeable" type="password" minlength="6" placeholder ="Senha" required="true" jsf:value="#{usuario.user.senha}"/>
 				        <input id="psw2" class="sign-up hiddeable" type="password" minlength="6" placeholder ="Repetir Senha" jsf:value="#{usuario.senha2}"/>
 
-				        <commandButton class="sign-in cmdButton hiddeable" value="Entrar" name = "btnEntrar" action="#{usuario.logar()}"/>
-				        <commandButton class="sign-up cmdButton hiddeable" value="Cadastrar" name = "btnCadastrar" action="#{usuario.cadastrarUsuario()}"/>
+				        <input type="submit" class="sign-in cmdButton hiddeable" value="Entrar" name = "btnEntrar" action="#{usuario.logar()}"/>
+				        <input type="submit" class="sign-up cmdButton hiddeable" value="Cadastrar" name = "btnCadastrar" action="#{usuario.cadastrarUsuario()}"/>
 			       	</fieldset>
 		    	</form>
-			</div>
-			
+			</div>	
 	</div>
 	
 	<script>		

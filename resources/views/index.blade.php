@@ -12,8 +12,8 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"/>
 		
 		<!-- Script Padrão -->
-		<script src="js/util.js"/>
-		<script src="js/jquery.mask.js"/>
+		<script src="js/util.js"></script>
+		<script src="js/jquery.mask.js"></script>
 		<script type="text/javascript">
 			function start(){window.onload = start;}
 		</script>
@@ -33,11 +33,11 @@
 						$nomeUser = 'userTeste';
 						$_SESSION["usuario"] = 'userTeste';
 					} else {
-						echo '<p> Já está logado </p>';
+						echo '<p>Já está logado</p>';
 					}
 				?>
-				<!-- NÃO LOGADO -->
 
+				<!-- NÃO LOGADO -->
 				<?php
 					if (!isset($_SESSION["usuario"])) {
 						echo '<p>Olá, visitante!</p>';
@@ -54,10 +54,9 @@
 					echo '<a href="/meusPets" class="sidebarButton fill" style="width:226px"><i class="fa fa-paw" style="margin-left:-134px"></i> Meus Pets</a>';
 				?>
 				
+				<!-- LOGADO E NÃO LOGADO -->
 		    	<hr/>
 				<p><button type="button" id="btnSearch" class="btnCustoms" onclick="openBusca()"><i class="fa fa-search"></i> Buscar Pet</button></p>
-				
-				<!-- LOGADO E NÃO LOGADO -->
 				<div id="buscaPet" style="display:none">
 					<form>
 						<input type="text" maxlength="40" placeholder="Nome do Pet" onkeypress="return validarNaoNumero(event)"/><br/>

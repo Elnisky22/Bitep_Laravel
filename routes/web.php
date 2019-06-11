@@ -23,6 +23,4 @@ Route::get('/meusPets', function() {
 	return view('meusPets');
 });
 
-Route::get('/login', function() {
-	return view('entrarCadastrar');
-});
+Route::get('/login', 'LoginController@index');
