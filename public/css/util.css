@@ -1,4 +1,4 @@
-/*                                             INÍCIO POR ID           */
+/*                                             INï¿½CIO POR ID           */
 #mySidebar {
 	background-color: #bcf6ea;
 	position: fixed;
@@ -13,7 +13,7 @@
 }
 /*                                             FIM POR ID             */
 
-/*                                         INÍCIO POR CLASSE          */
+/*                                         INï¿½CIO POR CLASSE          */
 .btnCustoms {
 	background-color: #16a085;
 	border: none;
@@ -27,6 +27,17 @@
 	text-decoration: none;
 	vertical-align: middle;
 	white-space: nowrap;
+}
+
+.grid-container {
+	display: inline-grid;
+	grid-template-columns: auto auto auto;
+	padding: 10px;
+}
+
+.grid-item {
+	padding: 20px;
+	text-align: center;
 }
 
 .fa-coffee {
@@ -66,7 +77,7 @@
   	text-align: center;
 }
 
-/* TAGS DE SOBREPOSIÇÃO DO PRIMEFACES*/
+/* TAGS DE SOBREPOSIï¿½ï¿½O DO PRIMEFACES*/
 html .ui-widget-content a {
 	background-color: #bcf6ea;
 	border-radius: 4px;
@@ -94,12 +105,12 @@ html .ui-state-default, html .ui-widget-content .ui-state-default, html.ui-widge
 	border: 0;
 	border-radius: 7px;
 }
-/* FIM DAS TAGS DE SOBREPOSIÇÃO DO PRIMEFACES*/
+/* FIM DAS TAGS DE SOBREPOSIï¿½ï¿½O DO PRIMEFACES*/
 
 .tel-mask {}
 /*                                          FIM POR CLASSE            */
 
-/*                                          INÍCIO POR TAG            */
+/*                                          INï¿½CIO POR TAG            */
 
 a.sidebarButton {
 	background: none;

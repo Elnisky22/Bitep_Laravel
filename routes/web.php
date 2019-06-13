@@ -4,8 +4,9 @@ Route::resource('/', 'UsuarioController');
 
 Route::resource('/pet', 'PetController');
 
+Route::get('/signin', 'LoginController@index')->name('signin');
 
-Route::get('/login', 'LoginController@index');
+Route::post('/login', 'LoginController@store');
 
 Route::get('/logout', function() {
 	return view('logout');

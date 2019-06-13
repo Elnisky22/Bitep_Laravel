@@ -39,15 +39,16 @@
 				?>
 
 				<?php
-					if (isset($_SESSION["usuario"])) {
-						echo '<p>Bem vindo, ' . $_SESSION["usuario"] .' =)</p><hr/>';
+				//session_start();
+					if (isset($_SESSION["usuario"])){
+						echo '<p>Bem vindo, ' . $_SESSION["usuario"]->nome .' =)</p><hr/>';
 						echo '<a href="/cadastrarPet" class="sidebarButton fill" style="width:226px"><i class="fa fa-plus" style="margin-left:-110px"></i> Cadastrar Pet</button></a>';
 						echo '<a href="/meuPerfil" class="sidebarButton fill" style="width:226px"><i class="fa fa-user" style="margin-left:-138px"></i> Meu perfil</a><br/>';
 						echo '<a href="/meusPets" class="sidebarButton fill" style="width:226px"><i class="fa fa-paw" style="margin-left:-134px"></i> Meus Pets</a>';
 					} else {
 						echo '<p>Olá, visitante!</p>';
 						echo '<p>Entre ou cadastre-se para poder doar seus pets!</p>';
-						echo '<a href="/login" class="sidebarButton fill" style="width:226px"><i class="fa fa-sign-in-alt" style="margin-left:-87px"></i> Entrar/Cadastrar</a>';
+						echo '<a href="signin" class="sidebarButton fill" style="width:226px"><i class="fa fa-sign-in-alt" style="margin-left:-87px"></i> Entrar/Cadastrar</a>';
 					}
 				?>
 				

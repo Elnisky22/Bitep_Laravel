@@ -11,17 +11,13 @@ class CreateUsuariosTable extends Migration {
      * @return void
      */
     public function up() {
-        //Schema::drop('usuarios');
-        //->
         Schema::create('usuarios', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
-            $table->date('datacadastro');
             $table->string('email');
             $table->string('nome');
             $table->string('senha');
             $table->string('telefone');            
             $table->bigInteger('cidade_id')->unsigned();
-            
             $table->timestamps();
         });
 
