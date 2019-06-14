@@ -360,10 +360,7 @@ class ComposerStaticInit3d98b900d5798f29e17b231a1c5606fb
     );
 
     public static $classMap = array (
-        'App\\Adocao' => __DIR__ . '/../..' . '/app/Models/Adocao.php',
-        'App\\Cidade' => __DIR__ . '/../..' . '/app/Models/Cidade.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
-        'App\\Estado' => __DIR__ . '/../..' . '/app/Models/Estado.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -371,6 +368,7 @@ class ComposerStaticInit3d98b900d5798f29e17b231a1c5606fb
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginController.php',
         'App\\Http\\Controllers\\PetController' => __DIR__ . '/../..' . '/app/Http/Controllers/PetController.php',
         'App\\Http\\Controllers\\UsuarioController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsuarioController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -381,7 +379,10 @@ class ComposerStaticInit3d98b900d5798f29e17b231a1c5606fb
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
-        'App\\Imagem' => __DIR__ . '/../..' . '/app/Models/Imagem.php',
+        'App\\Models\\Adocao' => __DIR__ . '/../..' . '/app/Models/Adocao.php',
+        'App\\Models\\Cidade' => __DIR__ . '/../..' . '/app/Models/Cidade.php',
+        'App\\Models\\Estado' => __DIR__ . '/../..' . '/app/Models/Estado.php',
+        'App\\Models\\Imagem' => __DIR__ . '/../..' . '/app/Models/Imagem.php',
         'App\\Models\\Pet' => __DIR__ . '/../..' . '/app/Models/Pet.php',
         'App\\Models\\Usuario' => __DIR__ . '/../..' . '/app/Models/Usuario.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -2516,6 +2517,7 @@ class ComposerStaticInit3d98b900d5798f29e17b231a1c5606fb
         'PHP_Token_YIELD' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'Parsedown' => __DIR__ . '/..' . '/erusev/parsedown/Parsedown.php',
+        'PetSeeder' => __DIR__ . '/../..' . '/database/seeds/PetTableSeeder.php',
         'PharIo\\Manifest\\Application' => __DIR__ . '/..' . '/phar-io/manifest/src/values/Application.php',
         'PharIo\\Manifest\\ApplicationName' => __DIR__ . '/..' . '/phar-io/manifest/src/values/ApplicationName.php',
         'PharIo\\Manifest\\Author' => __DIR__ . '/..' . '/phar-io/manifest/src/values/Author.php',
