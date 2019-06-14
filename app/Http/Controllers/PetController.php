@@ -7,20 +7,36 @@ use App\Models\Pet;
 
 class PetController extends Controller {
     public function index() {
-        //
+        /*
+        $pet = Pet::all();
+        return view('cadastrarPet',compact('pets'));
+        */
     }
 
     public function create() {
-        //
+        
     }
 
     public function store(Request $request) {
-        //
+        /*
+        $dono = $request->session()->get(); //pegar o usuario ativo
+        $pet = new Pet();
+        if($request->input('in') == "cadastrar"){
+            $pet->nome = $request->input('nome');
+            $pet->raca = $request->input('raca');
+            $pet->idade= $request->input('idade');
+            $pet->especie = $request->input('especie');
+            $pet->genero= $request->input('genero');
+            $pet->dono_id = $request->$dono->puck('id');     //cadastrar o id do usuario.
+            $pet->save();
+        }else{
+            echo "FALHA NO CADASTRO DO PET";   
+        }*/
     }
 
     public function show($id) {
-        $pet = Pet::find($id);
-        return view('pet', compact('pet'));
+        //$pet = Pet::find($id);
+        //return view('pet', compact('pet'));
     }
 
     public function edit($id) {
@@ -28,10 +44,25 @@ class PetController extends Controller {
     }
 
     public function update(Request $request, $id) {
-        //
+        /*
+        if($request->input('in') == "editar"){
+            $pet->nome = $request->input('nome');
+            $pet->raca = $request->input('raca');
+            $pet->idade = $request->input('idade');
+            $pet->especie = $request->input('especie');
+            $pet->genero = $request->input('genero');
+            $pet->save();
+        }else{
+            echo "FALHA NO UPDATE DO PET";
+        }*/
     }
 
     public function destroy($id) {
-        //
+        /*
+        if($request->input('in') == "excluir"){
+            $pet->destroy();
+        }else{
+            echo "FALHA NA EXCLUSAO DO PET";
+        }*/
     }
 }
