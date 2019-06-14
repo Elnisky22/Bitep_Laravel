@@ -5,7 +5,7 @@
 	<title>BiteP - Meus Pets</title>
 
 	<!-- CSS da Página -->
-	<link rel="stylesheet" type="text/css" href="css/meusPets.css"/>
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/meusPets.css') }}"/>
 </head>
 
 <body>

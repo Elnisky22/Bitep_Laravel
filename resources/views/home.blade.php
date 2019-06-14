@@ -5,7 +5,7 @@
 	<title>BiteP - Adoção de Pets</title>
 
 	<!-- CSS da Página -->		
-	<link rel="stylesheet" type="text/css" href="css/home.css"/>
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/home.css') }}"/>
 </head>
 
 <body>

@@ -5,7 +5,7 @@
 	<title>BiteP - Meu Perfil</title>
 
 	<!-- CSS da Página -->
-	<link rel="stylesheet" type="text/css" href="css/meuPerfil.css"/>
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/meuPerfil.css') }}"/>
 </head>
 	
 <body>
@@ -25,10 +25,12 @@
 					<br/><br/>
 
 					<?php
+					if (isset($_SESSION["usuario"])) {
 						echo '<p><i class="fa fa-address-card"></i><label> Nome: </label>' . $_SESSION["usuario"]->nome . '<br/></p>';
 						echo '<p><i class="fa fa-at"></i><label> Email: </label>' . $_SESSION["usuario"]->email . '<br/></p>';
 						echo '<p><i class="fa fa-mobile-alt"></i><label> Telefone: </label>' . $_SESSION["usuario"]->telefone . '<br/></p>';
 						echo '<p><i class="fa fa-home"></i><label> Cidade: </label>' . $_SESSION["usuario"]->cidade_id . '<br/></p>';
+					}
 					?>
 					
 					<hr/>

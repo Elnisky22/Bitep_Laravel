@@ -5,10 +5,10 @@
   	<title>BiteP - Entrar ou Cadastrar</title>
   	
   	<!-- CSS de Página -->
-	<link rel="stylesheet" href="css/entrarCadastrar.css"/>
+	<link rel="stylesheet" href="{{ asset('css/entrarCadastrar.css') }}"/>
 	
 	<!-- JavaScript da Página -->
-	<script src="js/entrarCadastrar.js"></script>
+	<script src="{{ asset('js/entrarCadastrar.js') }}"></script>
 </head>
 	
 <body>

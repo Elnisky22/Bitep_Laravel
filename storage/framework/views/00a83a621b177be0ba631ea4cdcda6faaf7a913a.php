@@ -3,7 +3,7 @@
 	<title>BiteP - Meu Perfil</title>
 
 	<!-- CSS da Página -->
-	<link rel="stylesheet" type="text/css" href="css/meuPerfil.css"/>
+	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/meuPerfil.css')); ?>"/>
 </head>
 	
 <body>
@@ -12,10 +12,6 @@
 			session_start();
 			$_SESSION["usuario"] = $usuario;
 		}
-		//session_start();
-		/*if (("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" !== "http://local.bitep.com/meuPerfil")) {
-			$_SESSION["usuario"] = $usuario;	
-		}*/
 	?>
 	<div class="w3-main">
 		<div class="flex-wrap" style="margin-top:50px">
@@ -27,10 +23,12 @@
 					<br/><br/>
 
 					<?php
+					if (isset($_SESSION["usuario"])) {
 						echo '<p><i class="fa fa-address-card"></i><label> Nome: </label>' . $_SESSION["usuario"]->nome . '<br/></p>';
 						echo '<p><i class="fa fa-at"></i><label> Email: </label>' . $_SESSION["usuario"]->email . '<br/></p>';
 						echo '<p><i class="fa fa-mobile-alt"></i><label> Telefone: </label>' . $_SESSION["usuario"]->telefone . '<br/></p>';
 						echo '<p><i class="fa fa-home"></i><label> Cidade: </label>' . $_SESSION["usuario"]->cidade_id . '<br/></p>';
+					}
 					?>
 					
 					<hr/>
