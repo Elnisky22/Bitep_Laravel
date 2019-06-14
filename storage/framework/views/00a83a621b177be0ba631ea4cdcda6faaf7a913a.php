@@ -8,8 +8,14 @@
 	
 <body>
 	<?php
-		session_start();
-		$_SESSION["usuario"] = $usuario;
+		if (("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" === "http://local.bitep.com/login")) {
+			session_start();
+			$_SESSION["usuario"] = $usuario;
+		}
+		//session_start();
+		/*if (("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" !== "http://local.bitep.com/meuPerfil")) {
+			$_SESSION["usuario"] = $usuario;	
+		}*/
 	?>
 	<div class="w3-main">
 		<div class="flex-wrap" style="margin-top:50px">
@@ -18,15 +24,15 @@
 				<legend>Meu Perfil</legend>
 					<br/>
 					<i class="fa fa-user-cog" style="font-size:4em"></i>
-					<br/><br/>						
-					<p><i class="fa fa-address-card"></i><label> Nome:</label> <?php echo e($usuario->nome); ?><br/></p>
-			
-					<p><i class="fa fa-at"></i><label> Email:</label> <?php echo e($usuario->email); ?><br/></p>
-			
-					<p><i class="fa fa-mobile-alt"></i><label> Telefone:</label> <?php echo e($usuario->telefone); ?><br/></p>
+					<br/><br/>
+
+					<?php
+						echo '<p><i class="fa fa-address-card"></i><label> Nome: </label>' . $_SESSION["usuario"]->nome . '<br/></p>';
+						echo '<p><i class="fa fa-at"></i><label> Email: </label>' . $_SESSION["usuario"]->email . '<br/></p>';
+						echo '<p><i class="fa fa-mobile-alt"></i><label> Telefone: </label>' . $_SESSION["usuario"]->telefone . '<br/></p>';
+						echo '<p><i class="fa fa-home"></i><label> Cidade: </label>' . $_SESSION["usuario"]->cidade_id . '<br/></p>';
+					?>
 					
-					<p><i class="fa fa-home"></i><label> Cidade:</label> <?php echo e($usuario->cidade_id); ?><br/></p>
-				
 					<hr/>
 					<div class="grid-container">
 						<div class="grid-item">
