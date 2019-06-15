@@ -33,20 +33,16 @@
 				<a href="<?php echo e(route('index.index')); ?>"><img src="<?php echo e(asset('images/logobitep.png')); ?>" style="width:150px" alt="Ocorreu um erro ao carregar a imagem."/></a><br/>
 
 				<?php
-				/*if (("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" !== "http://local.bitep.com/login")) {
-					session_start();
-				}*/
-
-				if (Session::has('usuario')) {
-					echo '<p>Bem vindo, ' . Session::get('usuario')->nome .'!</p><hr/>';
-					echo '<a href="/cadastrarPet" class="sidebarButton fill" style="width:226px"><i class="fa fa-plus" style="margin-left:-110px"></i> Cadastrar Pet</button></a>';
-					echo '<a href="/meuPerfil" class="sidebarButton fill" style="width:226px"><i class="fa fa-user" style="margin-left:-138px"></i> Meu perfil</a><br/>';
-					echo '<a href="/meusPets" class="sidebarButton fill" style="width:226px"><i class="fa fa-paw" style="margin-left:-134px"></i> Meus Pets</a>';
-				} else {
-					echo '<p>Olá, visitante!</p>';
-					echo '<p>Entre ou cadastre-se para poder doar seus pets!</p>';
-					echo '<a href="signin" class="sidebarButton fill" style="width:226px"><i class="fa fa-sign-in-alt" style="margin-left:-87px"></i> Entrar/Cadastrar</a>';
-				}
+					if (Session::has('usuario')) {
+						echo '<p>Bem vindo, ' . Session::get('usuario')->nome .'!</p><hr/>';
+						echo '<a href="/cadastrarPet" class="sidebarButton fill" style="width:226px"><i class="fa fa-plus" style="margin-left:-110px"></i> Cadastrar Pet</button></a>';
+						echo '<a href="/meuPerfil" class="sidebarButton fill" style="width:226px"><i class="fa fa-user" style="margin-left:-138px"></i> Meu perfil</a><br/>';
+						echo '<a href="/meusPets" class="sidebarButton fill" style="width:226px"><i class="fa fa-paw" style="margin-left:-134px"></i> Meus Pets</a>';
+					} else {
+						echo '<p>Olá, visitante!</p>';
+						echo '<p>Entre ou cadastre-se para poder doar seus pets!</p>';
+						echo '<a href="signin" class="sidebarButton fill" style="width:226px"><i class="fa fa-sign-in-alt" style="margin-left:-87px"></i> Entrar/Cadastrar</a>';
+					}
 				?>
 				
 				<!-- LOGADO E NÃO LOGADO -->
@@ -74,7 +70,6 @@
 				<!-- LOGADO -->
 				<?php
 					if (Session::has('usuario')) {
-						//dd(Session::get('usuario'));
 						echo '<a href="/logout" class="sidebarButton fill" style="width:226px"><i class="fa fa-sign-out-alt" style="margin-left:-110px"></i> Desconectar </a>';
 					}
 				?>
