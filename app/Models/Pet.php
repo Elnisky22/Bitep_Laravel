@@ -9,6 +9,6 @@ class Pet extends Model {
     protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = false;
-    protected $fillable = ['id', 'nome', 'genero', 'especie', 'raca', 'observacao'];
+    protected $fillable = ['id', 'nome', 'especie', 'genero', 'raca','dataNascimento', 'observacao', 'dono_id'];
     protected $guarded = [];
 }

@@ -11,19 +11,17 @@ class ImagemTableSeeder extends Seeder
      */
     public function run()
     {
+        //$imagem = $_FILES['C:\\Imagem']['imagem1'];
+        //$tamanho= $_FILES['imagem']['size'];
 
-
-        $imagem = $_FILES['C:\\Imagem']['imagem1'];
-        $tamanho= $_FILES['imagem']['size'];
-
-        if($imagem != 'none'){
-            $file = fopen($imagem,"rb");
-            $conteudo = fread($fp,$tamanho);
-            $conteudo = addslashes($conteudo);
-            fclose($file);
-        }
+        //if($imagem != 'none'){
+        //    $file = fopen($imagem,"rb");
+        //    $conteudo = fread($fp,$tamanho);
+        //    $conteudo = addslashes($conteudo);
+        //    fclose($file);
+        // }
         
-        DB::insert ('insert into imagens (imagem) values (?)', array($conteudo));
+        //DB::insert ('insert into imagens (imagem) values (?)', array($conteudo));
         
         /*
         $imagens_id = array(1,2,3);

@@ -15,21 +15,19 @@ class CreatePetsTable extends Migration {
 
         Schema::create('pets', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
-            $table->date('dataregistro');
-            $table->date('dataNascimento');
+            $table->string('nome');
             $table->string('especie');
             $table->string('genero');
-            $table->string('nome');
             $table->string('raca');
+            $table->string('dataNascimento');
             $table->string('observacao');           
             $table->bigInteger('dono_id')->unsigned();
                         
-            $table->integer('imagem_id')->toArray(); //colocar um array com as imagens.
             //https://stackoverflow.com/questions/32954424/laravel-migration-array-type-store-array-in-database-column
         
             $table->timestamps();
         });
-        //->
+    
         Schema::table('pets', function($table) {
             $table->foreign('dono_id')->references('id')->on('usuarios');
         });

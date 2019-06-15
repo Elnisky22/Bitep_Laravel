@@ -45,7 +45,14 @@
 							<p><i class="fa fa-sticky-note"></i><label> Observações:</label><br/>
 							<textarea class="w3-border inputText" style="border-radius:7px;border:0" cols="18" rows="3" title="Observações" maxlength="200"></textarea></p>
 							
-							VER COMO CARREGAR AS IMAGENS
+							<!--VER COMO CARREGAR AS IMAGENS-->
+							<!--
+							<div class="grid-item">
+								<input type="file" class="btnCustoms" styleclass = "imageUpload"/>
+								<input type="file" class="btnCustoms"/>
+								<input type="file" class="btnCustoms"/>
+								<input type="file" class="btnCustoms"/>
+							</div>	-->
 							<hr/>
 							<div class="grid-container">
 								<div class="grid-item">
