@@ -23,12 +23,12 @@
 					<br/><br/>
 
 					<?php
-					if (Session::has('usuario')) {
-						echo '<p><i class="fa fa-address-card"></i><label> Nome: </label>' . Session::get('usuario')->nome . '<br/></p>';
-						echo '<p><i class="fa fa-at"></i><label> Email: </label>' . Session::get('usuario')->email . '<br/></p>';
-						echo '<p><i class="fa fa-mobile-alt"></i><label> Telefone: </label>' . Session::get('usuario')->telefone . '<br/></p>';
-						echo '<p><i class="fa fa-home"></i><label> Cidade: </label>' . Session::get('usuario')->cidade_id . '<br/></p>';
-					}
+						if (Session::has('usuario')) {
+							echo '<p><i class="fa fa-address-card"></i><label> Nome: </label>' . Session::get('usuario')->nome . '<br/></p>';
+							echo '<p><i class="fa fa-at"></i><label> Email: </label>' . Session::get('usuario')->email . '<br/></p>';
+							echo '<p><i class="fa fa-mobile-alt"></i><label> Telefone: </label>' . Session::get('usuario')->telefone . '<br/></p>';
+							echo '<p><i class="fa fa-home"></i><label> Cidade: </label>' . App\Http\Controllers\UsuarioController::getCidade(Session::get('usuario')->cidade_id)->nome . '<br/></p>';
+						}
 					?>
 					
 					<hr/>
