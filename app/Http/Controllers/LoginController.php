@@ -15,8 +15,6 @@ class LoginController extends Controller {
     }
 
     public function store(Request $request) {
-        //dd($request->all());
-
         if ($request->input('in') == "sginup") {
             $usuario = new Usuario();
             $usuario->nome = $request->input('nome');

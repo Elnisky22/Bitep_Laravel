@@ -1,3 +1,8 @@
+<?php
+	if (("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" !== "http://local.bitep.com/login")) {
+		session_start();
+	}
+?>
 <!DOCTYPE html>
 <html lang = "pt-br">
 	<head>
@@ -25,23 +30,19 @@
 		<nav id="mySidebar" class="w3-sidebar w3-collapse w3-top">
 			<div class="w3-container w3-display-container w3-padding-16">
 				<i onclick="w3_close()"	class="fa fa-remove w3-hide-large w3-button w3-transparent w3-display-topright"></i>
-				<a href="/"><img src="{{ asset('images/logobitep.png') }}" style="width:150px" alt="Ocorreu um erro ao carregar a imagem."/></a><br/>
+				<a href="{{route('index.index')}}"><img src="{{ asset('images/logobitep.png') }}" style="width:150px" alt="Ocorreu um erro ao carregar a imagem."/></a><br/>
 
 				<?php
-				if (("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" !== "http://local.bitep.com/login")) {
-					session_start();
-				}
-
-				if (isset($_SESSION["usuario"])){
-					echo '<p>Bem vindo, ' . $_SESSION["usuario"]->nome .'!</p><hr/>';
-					echo '<a href="/cadastrarPet" class="sidebarButton fill" style="width:226px"><i class="fa fa-plus" style="margin-left:-110px"></i> Cadastrar Pet</button></a>';
-					echo '<a href="/meuPerfil" class="sidebarButton fill" style="width:226px"><i class="fa fa-user" style="margin-left:-138px"></i> Meu perfil</a><br/>';
-					echo '<a href="/meusPets" class="sidebarButton fill" style="width:226px"><i class="fa fa-paw" style="margin-left:-134px"></i> Meus Pets</a>';
-				} else {
-					echo '<p>Olá, visitante!</p>';
-					echo '<p>Entre ou cadastre-se para poder doar seus pets!</p>';
-					echo '<a href="signin" class="sidebarButton fill" style="width:226px"><i class="fa fa-sign-in-alt" style="margin-left:-87px"></i> Entrar/Cadastrar</a>';
-				}
+					if (Session::has('usuario')) {
+						echo '<p>Bem vindo, ' . Session::get('usuario')->nome .'!</p><hr/>';
+						echo '<a href="/cadastrarPet" class="sidebarButton fill" style="width:226px"><i class="fa fa-plus" style="margin-left:-110px"></i> Cadastrar Pet</button></a>';
+						echo '<a href="/meuPerfil" class="sidebarButton fill" style="width:226px"><i class="fa fa-user" style="margin-left:-138px"></i> Meu perfil</a><br/>';
+						echo '<a href="/meusPets" class="sidebarButton fill" style="width:226px"><i class="fa fa-paw" style="margin-left:-134px"></i> Meus Pets</a>';
+					} else {
+						echo '<p>Olá, visitante!</p>';
+						echo '<p>Entre ou cadastre-se para poder doar seus pets!</p>';
+						echo '<a href="signin" class="sidebarButton fill" style="width:226px"><i class="fa fa-sign-in-alt" style="margin-left:-87px"></i> Entrar/Cadastrar</a>';
+					}
 				?>
 				
 				<!-- LOGADO E NÃO LOGADO -->
@@ -68,7 +69,7 @@
 				
 				<!-- LOGADO -->
 				<?php
-					if (isset($_SESSION["usuario"])) {
+					if (Session::has('usuario')) {
 						echo '<a href="/logout" class="sidebarButton fill" style="width:226px"><i class="fa fa-sign-out-alt" style="margin-left:-110px"></i> Desconectar </a>';
 					}
 				?>

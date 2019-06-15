@@ -12,7 +12,7 @@
 	<?php
 		if (("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" === "http://local.bitep.com/login")) {
 			session_start();
-			$_SESSION["usuario"] = $usuario;
+			Session::put('usuario', $usuario);
 		}
 	?>
 	<div class="w3-main">
@@ -25,11 +25,11 @@
 					<br/><br/>
 
 					<?php
-					if (isset($_SESSION["usuario"])) {
-						echo '<p><i class="fa fa-address-card"></i><label> Nome: </label>' . $_SESSION["usuario"]->nome . '<br/></p>';
-						echo '<p><i class="fa fa-at"></i><label> Email: </label>' . $_SESSION["usuario"]->email . '<br/></p>';
-						echo '<p><i class="fa fa-mobile-alt"></i><label> Telefone: </label>' . $_SESSION["usuario"]->telefone . '<br/></p>';
-						echo '<p><i class="fa fa-home"></i><label> Cidade: </label>' . $_SESSION["usuario"]->cidade_id . '<br/></p>';
+					if (Session::has('usuario')) {
+						echo '<p><i class="fa fa-address-card"></i><label> Nome: </label>' . Session::get('usuario')->nome . '<br/></p>';
+						echo '<p><i class="fa fa-at"></i><label> Email: </label>' . Session::get('usuario')->email . '<br/></p>';
+						echo '<p><i class="fa fa-mobile-alt"></i><label> Telefone: </label>' . Session::get('usuario')->telefone . '<br/></p>';
+						echo '<p><i class="fa fa-home"></i><label> Cidade: </label>' . Session::get('usuario')->cidade_id . '<br/></p>';
 					}
 					?>
 					

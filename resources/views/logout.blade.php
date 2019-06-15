@@ -1,8 +1,15 @@
 <?php
-    session_start();
-    unset($_SESSION["usuario"]);
-    session_destroy();
+    //session_start();
+    
+    //dd(Session::get('usuario'));
+    Session::forget('usuario');
+    
+    //dd(Session::get('usuario'));
+    //Session::flush();
+    //unset($_SESSION["usuario"]);
+    //session_destroy();
     //view('home');
-    header('location:/');
-    exit;
+    //header('location:/');
+    route('index.index');
+    //exit;
 ?>
