@@ -11,6 +11,7 @@ class cidadeTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $path = 'app/Dev_docs/cidades.sql';
+        DB::unprepared(file_get_contents($path));
     }
 }

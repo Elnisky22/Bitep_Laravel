@@ -9,6 +9,7 @@ class estadoTableSeeder extends Seeder {
      * @return void
      */
     public function run() {
-        
+        $path = 'app/Dev_docs/estados.sql';
+        DB::unprepared(file_get_contents($path));
     }
 }

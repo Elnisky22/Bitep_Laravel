@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImagensTable extends Migration
+class CreateImagemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,19 @@ class CreateImagensTable extends Migration
      */
     public function up()
     {
-       //Schema::drop('imagens');
-    
-        Schema::create('imagens', function (Blueprint $table) {
+        Schema::create('imagems', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
             $table->binary('imagem');
             $table->bigInteger('pet_id')->unsigned();
             $table->timestamps();
         });
 
-        Schema::table('imagens', function($table) {
+        Schema::table('imagems', function($table) {
             $table->foreign('pet_id')->references('id')->on('pets'); //referencia da tabela pet.
         });
     }
 
-    //https://laracasts.com/discuss/channels/laravel/what-is-datatype-for-image
+     //https://laracasts.com/discuss/channels/laravel/what-is-datatype-for-image
 
     /**
      * Reverse the migrations.
@@ -36,6 +34,6 @@ class CreateImagensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('imagens');
+        Schema::dropIfExists('imagems');
     }
 }

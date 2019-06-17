@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Imagem extends Model {
-    protected $table = "imagens";
+    protected $table = "imagems";
     protected $primaryKey = "id";
     public $incrementing = true;
     public $timestamps = false;
