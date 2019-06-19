@@ -18,10 +18,10 @@ class PetController extends Controller {
     }
 
     public function store(Request $request) {
-        //dd($request->all());
+        //dd($request->session()->get('usuario')->id);
 
-        //$dono = $request->session()->get(); //pegar o usuario ativo
-        $dono = 1;
+        //$dono = $request->session()->get();
+        $dono = $request->session()->get('usuario')->id;
         $pet = new Pet();
         $pet->nome = $request->input('nome');
         $pet->especie = $request->input('especie');
@@ -33,10 +33,6 @@ class PetController extends Controller {
         
         $pet->save();
 
-
-            //echo "$pet->nome/n,$pet->dono_id";
-
-        
         return view('/meusPets',compact('pet'));
     }
 
