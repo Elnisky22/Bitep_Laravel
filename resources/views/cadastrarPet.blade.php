@@ -14,11 +14,12 @@
 <body>
 	<div class="w3-main">
 		<div id="divCadastro" class="flex-wrap" style="margin-top:80px">
-			<form id="formCadastro"  enctype="multipart/form-data">
+			<form id="formCadastro" method="POST" action="\cadastrarPet" enctype="multipart/form-data">
+				@csrf
 				<fieldset>
 					<legend>Novo Pet</legend>
 						<p><label><i class="fa fa-address-card"></i> </label>
-							<input type="text" maxlength="20" onkeypress="return validarNaoNumero(event)" placeholder="Nome do Pet" required="required" title="Nome do Pet"/></p>
+							<input name="nome" type="text" maxlength="20" onkeypress="return validarNaoNumero(event)" placeholder="Nome do Pet" required="required" title="Nome do Pet"/></p>
 							
 							<label><i class="fa fa-dna"></i> Espécie:</label>
 							<br/>
@@ -37,26 +38,26 @@
 							
 							<br/>
 							<label><i class="fa fa-paw"></i> </label>
-							<input type="text" maxlength="20" onkeypress="return validarNaoNumero(event)" placeholder="Raça do Pet" required="required" title="Raça do Pet"/>
+							<input type="text" name="raca" maxlength="20" onkeypress="return validarNaoNumero(event)" placeholder="Raça do Pet" required="required" title="Raça do Pet"/>
 							
 							<p><i class="fa fa-calendar"></i><label> Data Nascimento:</label><br/>
-							<input type="date" title="Data de Nascimento"/></p>
+							<input type="date" name="dataNascimento" title="Data de Nascimento"/></p>
 							
 							<p><i class="fa fa-sticky-note"></i><label> Observações:</label><br/>
-							<textarea class="w3-border inputText" style="border-radius:7px;border:0" cols="18" rows="3" title="Observações" maxlength="200"></textarea></p>
+							<textarea name="observacao" class="w3-border inputText" style="border-radius:7px;border:0" cols="18" rows="3" title="Observações" maxlength="200"></textarea></p>
 							
 							<!--VER COMO CARREGAR AS IMAGENS-->
-							<!--
+
 							<div class="grid-item">
-								<input type="file" class="btnCustoms" styleclass = "imageUpload"/>
+								<input type="file" name ="imagem" class="btnCustoms" styleclass = "imageUpload"/>
+							<!--<input type="file" class="btnCustoms"/>
 								<input type="file" class="btnCustoms"/>
-								<input type="file" class="btnCustoms"/>
-								<input type="file" class="btnCustoms"/>
-							</div>	-->
+								<input type="file" class="btnCustoms"/>-->
+							</div>	
 							<hr/>
 							<div class="grid-container">
 								<div class="grid-item">
-									<button type="button" class="btnCustoms" name="btnCadastrar" action="#{petBean.cadastrarPet()}"><i class="fa fa-check"></i> Cadastrar</button>
+									<button type="submit" class="btnCustoms" name="btnCadastrar" ><i class="fa fa-check"></i> Cadastrar</button>
 								</div>
 								<div class="grid-item">
 									<a href="/" class="btnCustoms"><i class="fa fa-times"></i> Cancelar</a>

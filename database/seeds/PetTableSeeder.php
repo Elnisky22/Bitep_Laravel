@@ -18,9 +18,9 @@ class PetTableSeeder extends Seeder
         //$imagens_id = ($imagens);
         
         
-        DB::insert ('insert into pets (nome,genero,especie,raca,dataNascimento,observacao,dono_id)
+        DB::insert ('insert into pets (nome,especie,genero,raca,dataNascimento,observacao,dono_id)
         values(?,?,?,?,?,?,?)',
-        array('Surubim','M','Cachorro','vira-lata','2019-01-01','pescador',1));
+        array('Surubim','Cachorro','M','vira-lata','2019-01-01','pescador',1));
 
     }
 }

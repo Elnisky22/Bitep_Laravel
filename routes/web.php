@@ -6,6 +6,8 @@ Route::resource('/pet', 'PetController');
 
 Route::get('/signin', 'LoginController@index')->name('signin');
 
+Route::post('/cadastrarPet', 'PetController@store');
+
 Route::post('/login', 'LoginController@store');
 
 Route::get('/logout', function() {
