@@ -1,8 +1,7 @@
 <?php
-    session_start();
-    unset($_SESSION["usuario"]);
-    session_destroy();
-    //view('home');
-    header('location:/');
+    Session::forget('usuario');
+    Session::save();
+
+    header('location:/index');
     exit;
 ?>

@@ -1,6 +1,8 @@
 <?php
 
-Route::resource('/', 'UsuarioController');
+Route::redirect('/','/index');
+
+Route::resource('/index', 'UsuarioController');
 
 Route::resource('/pet', 'PetController');
 

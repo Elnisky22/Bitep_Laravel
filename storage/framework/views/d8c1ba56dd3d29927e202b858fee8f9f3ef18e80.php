@@ -8,6 +8,13 @@
 
 <body>
 	<div class="w3-main">
+		<?php
+			if (isset($_SESSION["usuario"])) {
+				echo '' . $_SESSION["usuario"]->nome;
+			}else{
+				//dd(Session::get('usuario')->nome);
+			}
+		?>
 		<div class="grid-container">
 		<?php $__currentLoopData = $pets; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 			<div class="grid-item">
