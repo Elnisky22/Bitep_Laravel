@@ -18,20 +18,22 @@ class PetController extends Controller {
     }
 
     public function store(Request $request) {
-        /*
-        $dono = $request->session()->get(); //pegar o usuario ativo
+        //dd($request->session()->get('usuario')->id);
+
+        //$dono = $request->session()->get();
+        $dono = $request->session()->get('usuario')->id;
         $pet = new Pet();
-        if($request->input('in') == "cadastrar"){
-            $pet->nome = $request->input('nome');
-            $pet->raca = $request->input('raca');
-            $pet->idade= $request->input('idade');
-            $pet->especie = $request->input('especie');
-            $pet->genero= $request->input('genero');
-            $pet->dono_id = $request->$dono->puck('id');     //cadastrar o id do usuario.
-            $pet->save();
-        }else{
-            echo "FALHA NO CADASTRO DO PET";   
-        }*/
+        $pet->nome = $request->input('nome');
+        $pet->especie = $request->input('especie');
+        $pet->genero= $request->input('genero');
+        $pet->raca = $request->input('raca');
+        $pet->dataNascimento = $request->input('dataNascimento');
+        $pet->observacao = $request->input('observacao');
+        $pet->dono_id = $dono; //$request->$dono; //->puck('id');     //cadastrar o id do usuario.
+        
+        $pet->save();
+
+        return view('/meusPets',compact('pet'));
     }
 
     public function show($id) {
@@ -45,7 +47,7 @@ class PetController extends Controller {
 
     public function update(Request $request, $id) {
         /*
-        if($request->input('in') == "editar"){
+        if($request->input('in') == "editarPet"){
             $pet->nome = $request->input('nome');
             $pet->raca = $request->input('raca');
             $pet->idade = $request->input('idade');

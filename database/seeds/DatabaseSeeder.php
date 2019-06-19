@@ -12,11 +12,9 @@ class DatabaseSeeder extends Seeder {
         Eloquent::unguard();
 
         $this->call('estadoTableSeeder');
-        $path = 'app/Dev_docs/estados.sql';
-        DB::unprepared(file_get_contents($path));
+
 
         $this->call('cidadeTableSeeder');
-        $path = 'app/Dev_docs/cidades.sql';
-        DB::unprepared(file_get_contents($path));
+
     }
 }
