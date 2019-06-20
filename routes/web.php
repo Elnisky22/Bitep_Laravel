@@ -2,9 +2,10 @@
 
 Route::redirect('/','/index');
 
-Route::resource('/index', 'UsuarioController');
-
-Route::resource('/pet', 'PetController');
+Route::resources([
+	'index' => 'UsuarioController',
+	'pet' => 'PetController'
+]);
 
 Route::get('/signin', 'LoginController@index')->name('signin');
 

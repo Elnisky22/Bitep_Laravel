@@ -60,11 +60,7 @@ class PetController extends Controller {
     }
 
     public function destroy($id) {
-        /*
-        if($request->input('in') == "excluir"){
-            $pet->destroy();
-        }else{
-            echo "FALHA NA EXCLUSAO DO PET";
-        }*/
+        Pet::destroy($id);
+        return view('meusPets');
     }
 }
