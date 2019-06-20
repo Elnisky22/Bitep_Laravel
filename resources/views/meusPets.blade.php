@@ -10,6 +10,15 @@
 
 <body>
 	<div class="w3-main">
+		<?php
+			$pets = App\Http\Controllers\PetController::showPets(Session::get('usuario')->id);
+			echo '<div class="grid-container">';
+			foreach($pets as $p){
+				echo '<div class="grid-item">';
+				echo '' . $p->nome . '<br>';
+				echo "<a href='" . route('pet.show', $p->id) . "' class=\"btnCustoms\"><i class=\"fa fa-paw\"></i> Ver Perfil </a>";
+			}
+		?>
 		<form id="formPets" style="margin-top:100px; margin-left:100px; margin-right:100px;">
 			<dataGrid class="gridPets" var="pet" value="#{petBean.listaPets}" columns="4" layout="grid" rows="16" id="pets" paginator="true" paginatorTemplate="{CurrentPageReport} {CurrentPageLink} {FirstPageLink} {PreviousPageLink}">
 				<facet name="header">Meus Pets</f:facet>		

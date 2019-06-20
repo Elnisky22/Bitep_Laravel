@@ -18,10 +18,6 @@ class PetController extends Controller {
     }
 
     public function store(Request $request) {
-        //dd($request->session()->get('usuario')->id);
-
-        //$dono = $request->session()->get();
-        $dono = $request->session()->get('usuario')->id;
         $pet = new Pet();
         $pet->nome = $request->input('nome');
         $pet->especie = $request->input('especie');
@@ -29,16 +25,20 @@ class PetController extends Controller {
         $pet->raca = $request->input('raca');
         $pet->dataNascimento = $request->input('dataNascimento');
         $pet->observacao = $request->input('observacao');
-        $pet->dono_id = $dono; //$request->$dono; //->puck('id');     //cadastrar o id do usuario.
+        $pet->dono_id = $request->session()->get('usuario')->id;
         
         $pet->save();
 
-        return view('/meusPets',compact('pet'));
+        return view('/meusPets', compact('pet'));
     }
 
     public function show($id) {
         $pet = Pet::find($id);
         return view('pet', compact('pet'));
+    }
+
+    public static function showPets($id) {
+        return $pet = Pet::where('dono_id', '=', $id)->get();
     }
 
     public function edit($id) {

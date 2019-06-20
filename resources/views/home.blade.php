@@ -10,13 +10,6 @@
 
 <body>
 	<div class="w3-main">
-		<?php
-			if (isset($_SESSION["usuario"])) {
-				echo '' . $_SESSION["usuario"]->nome;
-			}else{
-				//dd(Session::get('usuario')->nome);
-			}
-		?>
 		<div class="grid-container">
 		@foreach($pets as $p)
 			<div class="grid-item">
