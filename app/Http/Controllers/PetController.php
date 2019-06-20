@@ -37,8 +37,8 @@ class PetController extends Controller {
     }
 
     public function show($id) {
-        //$pet = Pet::find($id);
-        //return view('pet', compact('pet'));
+        $pet = Pet::find($id);
+        return view('pet', compact('pet'));
     }
 
     public function edit($id) {
