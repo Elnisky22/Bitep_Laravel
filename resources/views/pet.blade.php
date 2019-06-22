@@ -22,7 +22,15 @@
 					<div class="w3-col s4">
 						<p><i class="fa fa-fw fa-dna"></i> Espécie: {{$pet->especie}}</p>
 						<p><i class="fa fa-fw fa-paw"></i> Raça: {{$pet->raca}}</p>
-						<p><i class="fa fa-fw fa-clock"></i> Idade: {{$pet->idade}}</p>
+						<p><i class="fa fa-fw fa-clock"></i> Idade: 
+							<?php 
+								$now = new DateTime();
+								$birth = new DateTime($pet->dataNascimento);
+								$interval = $now->diff($birth);
+								$elapsed = $interval->format('%y anos, %m meses e %a dias');
+								echo $elapsed;
+							?>
+						</p>
 					</div>
 					<div class="w3-col s4">
 						<p><i class="fa fa-fw fa-home"></i> Cidade: <?php echo '' . App\Http\Controllers\UsuarioController::getCidade(App\Http\Controllers\UsuarioController::show($pet->dono_id)->cidade_id)->nome ?></p>
