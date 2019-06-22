@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pet;
+use App\Models\Imagem;
 
 class PetController extends Controller {
     public function index() {
@@ -28,6 +29,15 @@ class PetController extends Controller {
         $pet->dono_id = $request->session()->get('usuario')->id;
         
         $pet->save();
+
+        
+        if($request->hasFile('imagem') && $request->file('imagem')->isValid()){
+            $image = new Imagem();
+            $image->pet_id = $pet->id;
+            $image->extencao = $request->imagem->extension();
+            $image->imagem = $request->imagem->get();
+            $image->save();
+        }
 
         return view('/meusPets', compact('pet'));
     }

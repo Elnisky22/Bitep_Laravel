@@ -9,6 +9,6 @@ class Imagem extends Model {
     protected $primaryKey = "id";
     public $incrementing = true;
     public $timestamps = false;
-    protected $fillable = ['id', 'imagem','pet_id'];
+    protected $fillable = ['id','extencao','imagem','pet_id'];
     protected $guarded = [];
 }

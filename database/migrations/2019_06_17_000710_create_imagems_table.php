@@ -15,13 +15,19 @@ class CreateImagemsTable extends Migration
     {
         Schema::create('imagems', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
-            $table->binary('imagem');
+            $table->string('extencao')->nullable(false);
             $table->bigInteger('pet_id')->unsigned();
             $table->timestamps();
         });
 
+        //migrations não tem mediumblob e largeblob nativamente
+        DB::statement("ALTER TABLE imagems ADD imagem MEDIUMBLOB NOT NULL");
+
         Schema::table('imagems', function($table) {
-            $table->foreign('pet_id')->references('id')->on('pets'); //referencia da tabela pet.
+            $table->foreign('pet_id')
+                ->references('id')
+                ->on('pets')
+                ->onDelete('cascade'); //referencia da tabela pet.
         });
     }
 
