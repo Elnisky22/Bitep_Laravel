@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Usuario;
 use App\Models\Pet;
 use App\Models\Cidade;
 use Illuminate\Http\Request;
@@ -20,8 +21,8 @@ class UsuarioController extends Controller {
         //
     }
 
-    public function show($id) {
-        //
+    public static function show($id) {
+        return Usuario::find($id);
     }
 
     public function edit($id) {
