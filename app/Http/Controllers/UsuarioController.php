@@ -34,7 +34,8 @@ class UsuarioController extends Controller {
     }
 
     public function destroy($id) {
-        //
+        Usuario::destroy($id);
+        return view('logout');
     }
 
     public static function getCidade($id){

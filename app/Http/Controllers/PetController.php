@@ -38,7 +38,7 @@ class PetController extends Controller {
     }
 
     public static function showPets($id) {
-        return $pet = Pet::where('dono_id', '=', $id)->get();
+        return Pet::where('dono_id', '=', $id)->get();
     }
 
     public function edit($id) {

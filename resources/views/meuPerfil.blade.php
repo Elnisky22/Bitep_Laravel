@@ -17,7 +17,8 @@
 	?>
 	<div class="w3-main">
 		<div class="flex-wrap" style="margin-top:50px">
-			<form id="formPerfil">
+			<?php $userid = Session::get('usuario')->id; ?>
+			<form id="formPerfil" method="post" action="{{ route('index.destroy', $userid) }}">
 				<fieldset form="formPerfil">
 				<legend>Meu Perfil</legend>
 					<br/>
@@ -39,7 +40,9 @@
 							<a href="/editarPerfil" class="btnCustoms" style="margin-left:10px"><i class="fa fa-pencil-alt"></i> Editar Perfil</a>
 						</div>
 						<div class="grid-item">
-							<button type="button" class="btnCustoms" name="btnExcluir" action="#{usuario.excluirConta()}"><i class="fa fa-times"></i> Excluir</button>
+							@method ('DELETE')
+							@csrf
+							<button type="submit" class="btnCustoms" name="btnExcluir"><i class="fa fa-times"></i> Excluir</button>
 						</div>
 					</div>
 				</fieldset>
