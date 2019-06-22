@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use App\Models\Pet;
+use App\Models\Estado;
 use App\Models\Cidade;
 use Illuminate\Http\Request;
 
@@ -30,7 +31,13 @@ class UsuarioController extends Controller {
     }
 
     public function update(Request $request, $id) {
-        //
+        $usuario = Usuario::find($id);
+        $usuario->nome = $request->input('nome');
+        $usuario->email = $request->input('email');
+        $usuario->telefone = $request->input('telefone');
+        $usuario->cidade_id = $request->input('cidade');
+        $usuario->save();
+        return redirect()->route('meuPerfil', compact('usuario'));
     }
 
     public function destroy($id) {
@@ -38,11 +45,19 @@ class UsuarioController extends Controller {
         return view('logout');
     }
 
-    public static function getCidade($id){
+    public static function getCidade($id) {
         return Cidade::find($id);
     }
 
-    public static function findCidades($cidade){
-        return Cidade::where('estado_id', '=', $cidade->estado_id);
+    public static function getEstadoId($id) {
+        return Cidade::find($id)->estado_id;
+    }
+
+    public static function getEstados() {
+        return Estado::all();
+    }
+
+    public static function loadCidades($id) {
+        return $cidades = Cidade::where('estado_id', '=', $id)->get();
     }
 }

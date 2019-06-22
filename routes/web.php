@@ -13,6 +13,8 @@ Route::post('/cadastrarPet', 'PetController@store');
 
 Route::post('/login', 'LoginController@store');
 
+//Route::post('/update', 'UsuarioController@update');
+
 Route::get('/logout', function() {
 	return view('logout');
 });
@@ -20,7 +22,7 @@ Route::get('/logout', function() {
 
 Route::get('/meuPerfil', function() {
 	return view('meuPerfil');
-});
+})->name('meuPerfil');
 Route::get('/editarPerfil', function() {
 	return view('editarPerfil');
 });
