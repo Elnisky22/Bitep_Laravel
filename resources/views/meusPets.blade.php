@@ -13,8 +13,11 @@
 		<?php $pets = App\Http\Controllers\PetController::showPets(Session::get('usuario')->id); ?>
 		<div class="grid-container">
 			@forelse($pets as $p)
+				<?php $image = App\Http\Controllers\PetController::showMainImage($p->id); ?>
+
 				<div class="grid-item">
 					{{$p->nome}}<br>
+					<img src="data:image/{{$image->extencao}};base64,{{ base64_encode($image->imagem) }}">
 					<a href="{{ route('pet.show', $p->id) }}" class="btnCustoms"><i class="fa fa-paw"></i> Ver Perfil</a>
 					<form method="POST" action="{{ route('pet.destroy', $p->id) }}">
 					@method ('DELETE')

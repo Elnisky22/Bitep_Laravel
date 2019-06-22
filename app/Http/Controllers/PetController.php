@@ -42,6 +42,10 @@ class PetController extends Controller {
         return view('/meusPets', compact('pet'));
     }
 
+    public static function showMainImage($petId) {
+        return Imagem::where('pet_id','=',$petId)->first();
+    }
+
     public function show($id) {
         $pet = Pet::find($id);
         return view('pet', compact('pet'));
