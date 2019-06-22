@@ -12,7 +12,7 @@
 	<div class="w3-main">
 		<?php $pets = App\Http\Controllers\PetController::showPets(Session::get('usuario')->id); ?>
 		<div class="grid-container">
-			@foreach($pets as $p)
+			@forelse($pets as $p)
 				<div class="grid-item">
 					{{$p->nome}}<br>
 					<a href="{{ route('pet.show', $p->id) }}" class="btnCustoms"><i class="fa fa-paw"></i> Ver Perfil</a>
@@ -22,7 +22,10 @@
 						<button type="submit" class="btnCustoms"><i class="fa fa-trash-alt"></i> Excluir</button>
 					</form>
 				</div>
-			@endforeach
+			@empty
+				<p>Ainda não possui pets cadastrados.<br>
+				Vá até a aba "Cadastrar Pets" para cadastrá-los.</p>
+			@endforelse
 		</div>
 	</div>
 </body>
