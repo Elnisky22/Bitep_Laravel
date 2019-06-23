@@ -62,6 +62,10 @@
 						<br/><br/>
 						<input name="raca" type="text" maxlength="40" placeholder="Raça do Pet" onkeypress="return validarNaoNumero(event)"/>
 						
+<<<<<<< HEAD
+=======
+						<!-- <p><a href="/buscaPet" class="btnCustoms"><i class="fa fa-search"></i> Buscar </a><p> -->
+>>>>>>> 1703db4f... Buscar Pet
 						<p><button type="submit" class="btnCustoms" name="btnBuscar" value = "buscar"><i class="fa fa-search"></i> Buscar</button></p>
 					</form>
 				</div>
