@@ -20,7 +20,7 @@
 					<br>
 					
 					<img src="data:image/{{$image->extencao}};base64,{{ base64_encode($image->imagem) }}">
-					<br/>
+					<br/> 
 					<a href="{{route('pet.show', $p->id)}}" class="btnCustoms"><i class="fa fa-paw"></i> Detalhes </a>
 				</div>
 			@endforeach
