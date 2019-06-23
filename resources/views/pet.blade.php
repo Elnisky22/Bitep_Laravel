@@ -27,7 +27,7 @@
 								$now = new DateTime();
 								$birth = new DateTime($pet->dataNascimento);
 								$interval = $now->diff($birth);
-								$elapsed = $interval->format('%y anos, %m meses e %a dias');
+								$elapsed = $interval->format('%y anos e %m meses');
 								echo $elapsed;
 							?>
 						</p>
