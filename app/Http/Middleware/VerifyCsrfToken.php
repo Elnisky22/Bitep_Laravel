@@ -19,6 +19,6 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        'http://local.bitep.com/loadCidades/*'
+        '/loadCidades/*'
     ];
 }

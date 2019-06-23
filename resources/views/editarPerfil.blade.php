@@ -12,6 +12,7 @@
 	<div class="w3-main">
 		<div class="flex-wrap" style="margin-top:50px">
 			<form id="formPerfil">
+				@csrf
 				<fieldset form="formPerfil">
 				<legend>Editar Perfil</legend>
 					<i class="fa fa-user-cog" style="font-size:4em"></i>

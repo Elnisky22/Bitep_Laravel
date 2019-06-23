@@ -10,8 +10,9 @@
 	
 <body>
 	<?php
-		if (("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" === "http://local.bitep.com/login")) {
-			session_start();
+		//if (("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" === "http://local.bitep.com/login")) {
+		  if("$_SERVER[REQUEST_URI]" == "/login"){
+			//session_start();
 			Session::put('usuario', $usuario);
 		}
 	?>

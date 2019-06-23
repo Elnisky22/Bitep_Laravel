@@ -9,14 +9,16 @@
 	
 	<!-- JavaScript da Página -->
 	<script src="{{ asset('js/entrarCadastrar.js') }}"></script>
+	<meta>
 </head>
 	
 <body>
 	<div class="w3-main">
 			<div class="flex-wrap" style="margin-top: 100px">
+			   
 				<form id="formEntrar" action="/login" method="post">
-					@csrf
-					<fieldset form="formEntrar">
+				    @csrf
+						<fieldset form="formEntrar">
 						<input type="radio" name="in" id="sign-in" value="singin" checked="checked"/>
 				        <input type="radio" name="in" id="sign-up" value="signup"/>
 
@@ -50,6 +52,7 @@
 	
 	<script>
 		$(document).ready( function() {
+			
       		$('#estado').change( function() {
 				$estado_id = $('#estado').val();
 				if ($('#estado').val() != '') {
@@ -66,6 +69,7 @@
 							});
 						}
 					});
+					//https://stackoverflow.com/questions/46472812/ajax-laravel-419-post-error
 				}
 			});
 		});

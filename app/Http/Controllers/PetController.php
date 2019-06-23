@@ -18,6 +18,8 @@ class PetController extends Controller {
     }
 
     public function store(Request $request) {
+        dd($request);
+
         $pet = new Pet();
         $pet->nome = $request->input('nome');
         $pet->especie = $request->input('especie');
@@ -62,5 +64,81 @@ class PetController extends Controller {
     public function destroy($id) {
         Pet::destroy($id);
         return view('meusPets');
+    }
+ 
+    public function searchPet(Request $request){
+            //dd($request);    
+
+            //$aux = $request->input('nome');
+            //$pets = Pet::all()->where('nome',$aux);
+            //return view('buscaPet',compact('pets'));
+            //funciona busca somente pelo nome.
+
+            //---------------------------------------------
+            
+            //$pets = Pet::query();
+            $pets = Pet::all()
+            
+            ->when( $request->nome, function($q){
+                $q->where('nome');
+            });
+            
+            /*
+            $pets = 
+
+            if($request->filled('nome')){
+                $query->where('nome',$request->input('nome'));   
+            }*/
+
+            /*
+
+            if($request->filled('isDog')){
+
+            }
+
+            if($request->filled('idCat')){
+                
+            }
+
+            if($request->filled('isM')){
+
+
+            }
+
+            if($request->filled('isF')){
+
+            }
+
+            if($request->filled('raca')){
+
+            }*/
+                
+  //              $query->where('nome',$request->input('nome'))->get();
+//            $pets = Pet::all()->where('nome',$request->input('nome'));
+
+//            return view('buscaPet',compact('pets'));
+                
+   //         }
+/*
+            if($request->input('raca') != ''){
+                $query->where('raca',$request->input('raca'));
+            }
+*/
+
+           /* 
+            
+            ->when($request->input('especie'),function($query){
+                $query->where('especie',$request->input('especie'));
+            })
+            ->when($request->input('genero'),function($query){
+                $query->where('genero',$request->input('genero'));
+            })
+            ->when($request->input('raca'),function($query){
+                $query->where('raca',$request->input('raca'));            
+            })->get();
+            */
+
+
+            return view('buscaPet',compact('pets')); 
     }
 }
