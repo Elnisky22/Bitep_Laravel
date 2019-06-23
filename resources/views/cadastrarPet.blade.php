@@ -49,10 +49,11 @@
 							<!--VER COMO CARREGAR AS IMAGENS-->
 
 							<div class="grid-item">
-								<input type="file" name ="imagem" class="btnCustoms" styleclass = "imageUpload"/>
-							<!--<input type="file" class="btnCustoms"/>
-								<input type="file" class="btnCustoms"/>
-								<input type="file" class="btnCustoms"/>-->
+								<input type="file" name ="imagem0" class="btnCustoms" styleclass = "imageUpload"/>
+								<input type="file" name ="imagem1" class="btnCustoms" styleclass = "imageUpload"/>
+								<input type="file" name ="imagem2" class="btnCustoms" styleclass = "imageUpload"/>
+								<input type="file" name ="imagem3" class="btnCustoms" styleclass = "imageUpload"/>
+								<input type="file" name ="imagem4" class="btnCustoms" styleclass = "imageUpload"/>
 							</div>	
 							<hr/>
 							<div class="grid-container">

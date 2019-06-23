@@ -19,27 +19,32 @@ class PetController extends Controller {
     }
 
     public function store(Request $request) {
-        $pet = new Pet();
-        $pet->nome = $request->input('nome');
-        $pet->especie = $request->input('especie');
-        $pet->genero= $request->input('genero');
-        $pet->raca = $request->input('raca');
-        $pet->dataNascimento = $request->input('dataNascimento');
-        $pet->observacao = $request->input('observacao');
-        $pet->dono_id = $request->session()->get('usuario')->id;
-        
-        $pet->save();
+        if($request->hasFile('imagem0') && $request->file('imagem0')->isValid()){
+            $pet = new Pet();
+            $pet->nome = $request->input('nome');
+            $pet->especie = $request->input('especie');
+            $pet->genero= $request->input('genero');
+            $pet->raca = $request->input('raca');
+            $pet->dataNascimento = $request->input('dataNascimento');
+            $pet->observacao = $request->input('observacao');
+            $pet->dono_id = $request->session()->get('usuario')->id;
+            
+            $pet->save();
 
-        
-        if($request->hasFile('imagem') && $request->file('imagem')->isValid()){
-            $image = new Imagem();
-            $image->pet_id = $pet->id;
-            $image->extencao = $request->imagem->extension();
-            $image->imagem = $request->imagem->get();
-            $image->save();
+            $i = 0;
+            while($request->hasFile('imagem'.$i) && $request->file('imagem'.$i)->isValid() && $i < 5){
+                $arquivo = $request->file('imagem'.$i++);
+                $image = new Imagem();
+                $image->pet_id = $pet->id;
+                $image->extencao = $arquivo->extension();
+                $image->imagem = $arquivo->get();
+                $image->save();
+            }
+
+            return view('/meusPets', compact('pet'));
+        }else{
+            echo "a primeira imagem precisa ser valida";
         }
-
-        return view('/meusPets', compact('pet'));
     }
 
     public static function showMainImage($petId) {
