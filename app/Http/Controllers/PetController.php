@@ -99,7 +99,7 @@ class PetController extends Controller {
             //});
             
             
-        $pets = Pet::table('pets')->where(function($query){
+        $pets = DB::table('pets')->where(function($query){
 
             if($request->filled('nome')){
                 $query->where('nome',$request->nome);   
@@ -126,7 +126,7 @@ class PetController extends Controller {
             }
         
         })->get();
-                
+               
   //              $query->where('nome',$request->input('nome'))->get();
 //            $pets = Pet::all()->where('nome',$request->input('nome'));
 
