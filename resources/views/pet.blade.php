@@ -9,10 +9,11 @@
 	
 	<!-- JavaScript da Página -->
 	<script type="text/javascript" src="{{ asset('js/pet.js') }}"></script>
+	<script>window.onload = function(){showDivs(1);}</script>
 </head>
 	
 <body>
-	<div class="w3-main" onload="showDivs(1)">
+	<div class="w3-main" >
 		<p style="font-size:30px;margin: 0px 0px 0px 15px;"><b>{{$pet->nome}}</b></p>
 		
 		<?php $imagens = App\Http\Controllers\PetController::getImages($pet->id); ?>
