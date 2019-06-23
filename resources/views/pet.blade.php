@@ -19,7 +19,7 @@
 		<div id="mySlide">
 			<div id="slideshow" class="w3-display-container flex-wrap">
 				@foreach ($imagens as $i)
-					<img styleClass="mySlides" src="data:image/{{$i->extencao}};base64,{{ base64_encode($i->imagem) }}" class="petImg" width="600px" height="400px" alt="Ocorreu um erro ao carregar a imagem.">
+					<img styleClass="mySlides" class="petImg" src="data:image/{{$i->extencao}};base64,{{ base64_encode($i->imagem) }}" width="600px" height="400px" alt="Ocorreu um erro ao carregar a imagem.">
 				@endforeach
 
   				<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
