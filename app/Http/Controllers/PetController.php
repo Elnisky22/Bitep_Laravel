@@ -19,7 +19,7 @@ class PetController extends Controller {
     }
 
     public function store(Request $request) {
-        dd($request);
+        //dd($request);
 
         $pet = new Pet();
         $pet->nome = $request->input('nome');
@@ -83,8 +83,8 @@ class PetController extends Controller {
     public function searchPet(Request $request){
             //dd($request);    
 
-            $aux = $request->input('nome');
-            $pets = Pet::all()->where('nome',$aux);   //esse bloco funciona para busca.
+            //$aux = $request->input('nome');
+            //$pets = Pet::all()->where('nome',$aux);   //esse bloco funciona para busca.
             //funciona busca somente pelo nome.
 
             //---------------------------------------------
@@ -92,41 +92,40 @@ class PetController extends Controller {
             //DAQUI PRA BAIXO É SO CONSTRUCAO.
 
             //$pets = Pet::query();
-            $pets = Pet::all()
+            //$pets = Pet::all()
             
-            ->when( $request->nome, function($q){
-                $q->where('nome');
-            });
+            //->when( $request->nome, function($q){
+            //    $q->where('nome');
+            //});
             
-            /*
-            $pets = 
+            
+        $pets = Pet::table('pets')->where(function($query){
 
             if($request->filled('nome')){
-                $query->where('nome',$request->input('nome'));   
-            }*/
-
-            /*
+                $query->where('nome',$request->nome);   
+            }
 
             if($request->filled('isDog')){
-
+                $query->where('isDog',$request->especie);
             }
 
             if($request->filled('idCat')){
-                
+                $query->where('isCat',$request->especie);
             }
 
             if($request->filled('isM')){
-
-
+                $query->where('isM',$request->sexo);
             }
 
             if($request->filled('isF')){
-
+                $query->where('isF',$request->sexo);
             }
 
             if($request->filled('raca')){
-
-            }*/
+                $query->Where('raca',$request->raca);
+            }
+        
+        })->get();
                 
   //              $query->where('nome',$request->input('nome'))->get();
 //            $pets = Pet::all()->where('nome',$request->input('nome'));
