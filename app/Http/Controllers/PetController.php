@@ -48,7 +48,11 @@ class PetController extends Controller {
     }
 
     public static function showMainImage($petId) {
-        return Imagem::where('pet_id','=',$petId)->first();
+        return Imagem::where('pet_id', '=', $petId)->first();
+    }
+
+    public static function getImages($petId) {
+        return Imagem::where('pet_id', '=', $petId)->get();
     }
 
     public function show($id) {
