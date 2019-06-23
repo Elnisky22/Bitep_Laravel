@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pet;
+use App\Models\Imagem;
 
 class PetController extends Controller {
     public function index() {
@@ -31,7 +32,20 @@ class PetController extends Controller {
         
         $pet->save();
 
+        
+        if($request->hasFile('imagem') && $request->file('imagem')->isValid()){
+            $image = new Imagem();
+            $image->pet_id = $pet->id;
+            $image->extencao = $request->imagem->extension();
+            $image->imagem = $request->imagem->get();
+            $image->save();
+        }
+
         return view('/meusPets', compact('pet'));
+    }
+
+    public static function showMainImage($petId) {
+        return Imagem::where('pet_id','=',$petId)->first();
     }
 
     public function show($id) {
@@ -40,7 +54,7 @@ class PetController extends Controller {
     }
 
     public static function showPets($id) {
-        return $pet = Pet::where('dono_id', '=', $id)->get();
+        return Pet::where('dono_id', '=', $id)->get();
     }
 
     public function edit($id) {
@@ -69,13 +83,14 @@ class PetController extends Controller {
     public function searchPet(Request $request){
             //dd($request);    
 
-            //$aux = $request->input('nome');
-            //$pets = Pet::all()->where('nome',$aux);
-            //return view('buscaPet',compact('pets'));
+            $aux = $request->input('nome');
+            $pets = Pet::all()->where('nome',$aux);   //esse bloco funciona para busca.
             //funciona busca somente pelo nome.
 
             //---------------------------------------------
             
+            //DAQUI PRA BAIXO É SO CONSTRUCAO.
+
             //$pets = Pet::query();
             $pets = Pet::all()
             

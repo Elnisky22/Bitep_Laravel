@@ -13,7 +13,7 @@ Route::post('/cadastrarPet', 'PetController@store');
 
 Route::post('/login', 'LoginController@store');
 
-Route::get('/buscaPet','PetController@searchPet'); 
+Route::get('/buscaPet','PetController@searchPet'); //chama o metodo de busca
 
 Route::get('/logout', function() {
 	return view('logout');

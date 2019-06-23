@@ -14,8 +14,13 @@
 			<div class="grid-container">
 			@foreach($pets as $p)
 				<div class ="grid-item">
+				<?php $image = App\Http\Controllers\PetController::showMainImage($p->id); ?>
+				
 					{{$p->nome}}
 					<br>
+					
+					<img src="data:image/{{$image->extencao}};base64,{{ base64_encode($image->imagem) }}">
+
 					<a href="{{route('pet.show', $p->id)}}" class="btnCustoms"><i class="fa fa-paw"></i> Detalhes </a>
 				</div>
 			@endforeach
