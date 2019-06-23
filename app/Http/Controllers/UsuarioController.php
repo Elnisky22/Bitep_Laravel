@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use App\Models\Usuario;
 use App\Models\Pet;
 use App\Models\Estado;
@@ -37,6 +38,8 @@ class UsuarioController extends Controller {
         $usuario->telefone = $request->input('telefone');
         $usuario->cidade_id = $request->input('cidade');
         $usuario->save();
+        
+        Session::put('usuario', $usuario);
         return redirect()->route('meuPerfil', compact('usuario'));
     }
 
