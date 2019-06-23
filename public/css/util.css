@@ -36,8 +36,9 @@
 }
 
 .grid-item {
-	padding: 20px;
+	padding: 5px;
 	text-align: center;
+	margin: 5px 5px 5px 5px;
 }
 
 .fa-coffee {
