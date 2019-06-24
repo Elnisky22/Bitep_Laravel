@@ -86,4 +86,30 @@ class PetController extends Controller {
         Pet::destroy($id);
         return view('meusPets');
     }
+
+    public function searchPet(Request $request){
+        $pets = Pet::all();
+        if($request->filled('nome')){
+            $pets = $pets->intersect(Pet::where('nome','like',"%$request->nome%")->get());
+        }
+        if($request->filled('isDog') xor $request->filled('isCat')){
+            if($request->filled('isDog')){
+                $pets = $pets->intersect(Pet::where('especie','cachorro')->get());
+            }else{
+                $pets = $pets->intersect(Pet::where('especie','gato')->get());
+            }
+        }
+        if($request->filled('isM') xor $request->filled('isF')){
+            if($request->filled('isM')){
+                $pets = $pets->intersect(Pet::where('genero','macho')->get());
+            }else{
+                $pets = $pets->intersect(Pet::where('genero','femea')->get());
+            }
+        }
+        if($request->filled('raca')){
+            $pets = $pets->intersect(Pet::where('raca','like',"%$request->raca%")->get());
+        }
+        
+        return view('buscaPet',compact('pets')); 
+    }
 }

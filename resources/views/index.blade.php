@@ -49,12 +49,11 @@
 		    	<hr/>
 				<p><button type="button" id="btnSearch" class="btnCustoms" onclick="openBusca()"><i class="fa fa-search"></i> Buscar Pet</button></p>
 				<div id="buscaPet" style="display:none">
-					<form>
-						<input type="text" maxlength="40" placeholder="Nome do Pet" onkeypress="return validarNaoNumero(event)"/><br/>
-						
+					<form id="formBuscarPet" action = "\buscaPet" method ="GET">
+						<input name="nome" type="text" maxlength="40" placeholder="Nome do Pet" onkeypress="return validarNaoNumero(event)"/><br/>
 						<br/><label style="font-weight:bold"><i class="fa fa-dna"></i> Espécie</label><br/>
 						<label for="ckbDog">Cachorro </label><input name="isDog" type="checkbox" id="ckbDog"/>
-						<input type="checkbox" id="ckbCat" name="isCat" value=""/><label for="ckbCat"> Gato</label>
+						<input type="checkbox" id="ckbCat" name="isCat"/><label for="ckbCat"> Gato</label>
 						<br/>
 						<br/><label style="font-weight:bold"><i class="fa fa-venus-mars"></i> Gênero</label><br/>
 						<label for="ckbMacho">Macho </label><input name="isM" type="checkbox" id="ckbMacho"/>
@@ -62,7 +61,7 @@
 						<br/><br/>
 						<input name="raca" type="text" maxlength="40" placeholder="Raça do Pet" onkeypress="return validarNaoNumero(event)"/>
 						
-						<p><button type="button" class="btnCustoms" name="btnBuscar" action=""><i class="fa fa-search"></i> Buscar</button></p>
+						<p><button type="submit" class="btnCustoms" name="btnBuscar" value = "buscar"><i class="fa fa-search"></i> Buscar</button></p>
 					</form>
 				</div>
 				<hr/>	
