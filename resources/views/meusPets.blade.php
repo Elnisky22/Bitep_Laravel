@@ -20,18 +20,16 @@
 					<br>
 					<img src="data:image/{{$image->extencao}};base64,{{ base64_encode($image->imagem) }}" class="petImg" width="140px" height="140px">
 					<br>
-					<div class="grid-container">
-						<div class="grid-item">
-							<a href="{{ route('pet.show', $p->id) }}" class="btnCustoms"><i class="fa fa-paw"></i> Ver Perfil</a>
-						</div>
-						<div class="grid-item">
-							<form method="POST" action="{{ route('pet.destroy', $p->id) }}">
-								@method ('DELETE')
-								@csrf
-								<button type="submit" class="btnCustoms"><i class="fa fa-trash-alt"></i> Excluir</button>
-							</form>
-						</div>
-					</div>
+					<br>
+					<a href="{{ route('pet.show', $p->id) }}" class="btnCustoms"><i class="fa fa-paw"></i> Ver Perfil</a>
+				
+					<br>
+						<form method="POST" action="{{ route('pet.destroy', $p->id) }}">
+							@method ('DELETE')
+							@csrf
+							<button type="submit" class="btnCustoms"style = "margin-top: 5px;"><i class="fa fa-trash-alt"></i> Excluir</button>
+					</form>
+					<br>
 				</div>
 			@empty
 				<p>Ainda não possui pets cadastrados.<br>
