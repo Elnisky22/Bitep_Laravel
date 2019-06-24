@@ -7,8 +7,6 @@ function plusDivs(n) {
 function showDivs(n) {
   var i;
   var x = document.getElementsByClassName("petImg");
-  console.log("x: " + x);
-  console.log("x.length: " + x.length);
 
   if (n > x.length) {
     slideIndex = 1
@@ -19,7 +17,6 @@ function showDivs(n) {
   for (i = 0; i < x.length; i++) {
      x[i].style.display = "none";  
   }
-  console.log("slide index = " + slideIndex);
-  console.log("x[0] = " + x[0]);
+  
   x[slideIndex-1].style.display = "block";
 }

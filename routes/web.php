@@ -13,8 +13,6 @@ Route::post('/cadastrarPet', 'PetController@store');
 
 Route::post('/login', 'LoginController@store');
 
-//Route::post('/update', 'UsuarioController@update');
-
 Route::get('/logout', function() {
 	return view('logout');
 });
