@@ -40,7 +40,7 @@
 					<div class="w3-col s4">
 						<p><i class="fa fa-fw fa-dna"></i><b> Espécie:</b> {{$pet->especie}}</p>
 						<p><i class="fa fa-fw fa-paw"></i><b> Raça:</b> {{$pet->raca}}</p>
-						<p><i class="fa fa-fw fa-genderless"></i><b> Gênero:</b> {{$pet->genero}}</p>
+						<p><i class="fa fa-fw fa-venus-mars"></i><b> Gênero:</b> {{$pet->genero}}</p>
 					</div>
 					<div class="w3-col s4">
 						<p><i class="fa fa-fw fa-home"></i><b> Cidade:</b> <?php echo '' . App\Http\Controllers\UsuarioController::getCidade(App\Http\Controllers\UsuarioController::show($pet->dono_id)->cidade_id)->nome ?></p>
