@@ -20,7 +20,7 @@
 			<?php $userid = Session::get('usuario')->id; ?>
 			<form id="formPerfil" method="post" action="{{ route('index.destroy', $userid) }}">
 				<fieldset form="formPerfil">
-				<legend>Meu Perfil</legend>
+					<legend>Meu Perfil</legend>
 					<br/>
 					<i class="fa fa-user-cog" style="font-size:4em"></i>
 					<br/><br/>
@@ -35,16 +35,10 @@
 					?>
 					
 					<hr/>
-					<div class="grid-container">
-						<div class="grid-item">
-							<a href="/editarPerfil" class="btnCustoms" style="margin-left:10px"><i class="fa fa-pencil-alt"></i> Editar Perfil</a>
-						</div>
-						<div class="grid-item">
-							@method ('DELETE')
-							@csrf
-							<button type="submit" class="btnCustoms" name="btnExcluir"><i class="fa fa-times"></i> Excluir</button>
-						</div>
-					</div>
+					<a href="/editarPerfil" class="btnCustoms"><i class="fa fa-pencil-alt"></i> Editar Perfil</a>
+					@method ('DELETE')
+					@csrf
+					<button type="submit" class="btnCustoms" name="btnExcluir" style="margin-left: 5px"><i class="fa fa-times"></i> Excluir</button>
 				</fieldset>
 			</form>
 		</div>

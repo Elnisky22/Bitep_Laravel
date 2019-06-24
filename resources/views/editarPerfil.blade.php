@@ -52,14 +52,8 @@
 						@endforeach
 					</select></p>
 					
-					<div class="grid-container">
-						<div class="grid-item">
-							<button type="submit" id="btnEnviar" form="formPerfil" class="btnCustoms" style="margin-left:15px"><i class="fa fa-check"></i> Salvar</button>
-						</div>
-						<div class="grid-item">
-							<a href="/meuPerfil" class="btnCustoms" style="margin-left:15px"><i class="fa fa-times"></i> Cancelar</a>
-						</div>
-					</div>	
+					<button type="submit" id="btnEnviar" form="formPerfil" class="btnCustoms" style="margin-left:15px"><i class="fa fa-check"></i> Salvar</button>
+					<a href="/meuPerfil" class="btnCustoms" style="margin-left: 5px"><i class="fa fa-times"></i> Cancelar</a>
 				</fieldset>
 				<br/>
 			</form>

@@ -62,14 +62,9 @@
 								<input type="file" name ="imagem4" class="btnCustoms" />
 							</div>	
 							<hr/>
-							<div class="grid-container">
-								<div class="grid-item">
-									<button type="submit" class="btnCustoms" name="btnCadastrar" ><i class="fa fa-check"></i> Cadastrar</button>
-								</div>
-								<div class="grid-item">
-									<a href="/" class="btnCustoms"><i class="fa fa-times"></i> Cancelar</a>
-								</div>
-							</div>
+							
+							<button type="submit" class="btnCustoms" name="btnCadastrar" ><i class="fa fa-check"></i> Cadastrar</button>
+							<a href="/" class="btnCustoms" style="margin-left: 5px"><i class="fa fa-times"></i> Cancelar</a>
 					</fieldset>
 				</form>
 			</div>
