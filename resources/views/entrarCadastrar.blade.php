@@ -55,7 +55,7 @@
 				if ($('#estado').val() != '') {
 					$.ajax({
 						url: '{{route('loadCidades', 'estadoid')}}'.replace('estadoid', $estado_id),
-						type: "POST",
+						type: "GET",
 						data: {estado : $('#estado').val()},
 						success: function(data) {
 							var cities = $('#cidade');

@@ -17,7 +17,7 @@
 	?>
 	<div class="w3-main">
 		<div class="flex-wrap" style="margin-top:50px">
-			<?php $userid = Session::get('usuario')->id; ?>
+			<?php dd($userid = Session::get('usuario')->id); ?>
 			<form id="formPerfil" method="post" action="{{ route('index.destroy', $userid) }}">
 				<fieldset form="formPerfil">
 					<legend>Meu Perfil</legend>

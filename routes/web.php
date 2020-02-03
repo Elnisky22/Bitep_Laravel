@@ -19,7 +19,6 @@ Route::get('/logout', function() {
 	return view('logout');
 });
 
-
 Route::get('/meuPerfil', function() {
 	return view('meuPerfil');
 })->name('meuPerfil');
@@ -37,4 +36,4 @@ Route::get('/meusPets', function() {
 	return view('meusPets');
 });
 
-Route::post('/loadCidades/{estado_id}', 'LoginController@loadCidades')->name('loadCidades');
+Route::get('/loadCidades/{estado_id}', 'LoginController@loadCidades')->name('loadCidades');
