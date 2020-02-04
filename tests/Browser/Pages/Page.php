@@ -14,7 +14,15 @@ abstract class Page extends BasePage
     public static function siteElements()
     {
         return [
-            '@element' => '#selector',
+            '@loginRegisterButton' => 'a[class="sidebarButton fill"]',
+            '@openSearchPetButton' => 'button[id="btnSearch"]',
+            '@petName' => 'input[name="nome"]',
+            '@labelDog' => 'label[for="ckbDog"]',
+            '@labelCat' => 'label[for="ckbCat"]',
+            '@labelM' => 'label[for="ckbMacho"]',
+            '@labelF' => 'label[for="ckbFemea"]',
+            '@breedPet' => 'input[name="raca"]',
+            '@searchPetButton' => 'button[name="btnBuscar"]',
         ];
     }
 }

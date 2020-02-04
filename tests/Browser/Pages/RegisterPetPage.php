@@ -4,7 +4,7 @@ namespace Tests\Browser\Pages;
 
 use Laravel\Dusk\Browser;
 
-class HomePage extends Page
+class RegisterPetPage extends Page
 {
     /**
      * Get the URL for the page.
@@ -13,18 +13,18 @@ class HomePage extends Page
      */
     public function url()
     {
-        return '/index'; 
+        return '/';
     }
 
     /**
      * Assert that the browser is on the page.
      *
-     * @param  \Laravel\Dusk\Browser  $browser
+     * @param  Browser  $browser
      * @return void
      */
     public function assert(Browser $browser)
     {
-        $this->assert($this->getUrl());
+        $browser->assertPathIs($this->url());
     }
 
     /**
@@ -35,7 +35,7 @@ class HomePage extends Page
     public function elements()
     {
         return [
-            '@showPet1' => 'div:nth-child(1) > a',            
+            '@element' => '#selector',
         ];
     }
 }
