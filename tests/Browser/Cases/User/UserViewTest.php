@@ -2,6 +2,8 @@
 
 namespace Tests\Browser\User;
 
+use App\Models\Usuario;
+
 use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -13,7 +15,7 @@ class UserViewTest extends DuskTestCase
     //Para rodar use -> php artisan dusk --filter UserViewTest.
     // '.' -> sucesso, 'F' -> falha e 'E' -> erro.
 
-    /** @test */
+    /** @test *//*
     public function accessModalLoginTest()
     {
         $this->browse(function (Browser $browser) {
@@ -24,9 +26,9 @@ class UserViewTest extends DuskTestCase
                     ->assertSee('Cadastrar')
                     ->assertUrlIs('http://localhost/signin'); 
         });
-    }
+    } */
 
-    /** @test */
+    /** @test *//*
     public function viewSearchPetOptionsTest()
     {
         $this->browse(function (Browser $browser) {
@@ -40,7 +42,7 @@ class UserViewTest extends DuskTestCase
                     ->assertSee('Macho')
                     ->assertSee('Fêmea');
         });
-    }
+    }*/
 
     /** @test */
     public function createUserTest()
@@ -50,7 +52,7 @@ class UserViewTest extends DuskTestCase
                     ->assertSee('Olá, visitante!')
                     ->click('a[class="sidebarButton fill"]')
                     ->assertSee('Entrar')
-                    ->cadastrar('Cadastrar')
+                    ->assertSee('Cadastrar')
                     ->click('label[for="sign-up"]')
                     ->type('input[name="nome"]', 'Aderbal Pinduca')
                     ->type('input[name="email"]', 'aderbal_pinduca@bol.com')
@@ -76,8 +78,33 @@ class UserViewTest extends DuskTestCase
                     ->type('input[name="email"]','aderbal_pinduca@bol.com')
                     ->type('input[name="senha"]','12345678')
                     ->press('input[name="btnEntrar"]')
-                    ->waitFor('Bem Vindo, Aderbal')
+                    ->waitFor('Bem Vindo, Aderbal!')
+                    ->assertUrlIs('http://localhost/index')
+                    ->assertSee('Cadastrar Pet')
+                    ->assertSee('Meu Perfil')
+                    ->assertSee('Meus Pets');
+        });
+    }
+
+    /** @test */
+    public function redirectProfileTest()
+    {
+        $user = Usuario::find(1);
+
+        $this->browse(function (Browser $browser) use ($user) {
+            $browser->loginAs($user)
+                    ->visit('/index')
+                    ->assertSee('Bem vindo, '.$user->name)
+                    ->press('Entrar')
+                    ->waitForText('Meu Perfil')
                     ->assertUrlIs('http://localhost/meuPerfil');
         });
     }
+
+    /** @test *//*
+    public function acessProfilePageTest()
+    {
+
+    }*/
+
 }

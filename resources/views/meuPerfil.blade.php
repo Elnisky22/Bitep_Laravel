@@ -10,14 +10,18 @@
 	
 <body>
 	<?php
-		if (("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" === "http://local.bitep.com/login")) {
-			session_start();
-			Session::put('usuario', $usuario);
-		}
+		//if (("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" === "http://local.bitep.com/login")) {
+			//session_start();
+			//Session::put('usuario', $usuario);
+		//}
 	?>
 	<div class="w3-main">
 		<div class="flex-wrap" style="margin-top:50px">
-			<?php dd($userid = Session::get('usuario')->id); ?>
+			<?php 
+				//dd($r = Session::has('usuario'));
+			$userid = Session::get('usuario')->id;
+			 	//dd($userid);
+			 ?>
 			<form id="formPerfil" method="post" action="{{ route('index.destroy', $userid) }}">
 				<fieldset form="formPerfil">
 					<legend>Meu Perfil</legend>
